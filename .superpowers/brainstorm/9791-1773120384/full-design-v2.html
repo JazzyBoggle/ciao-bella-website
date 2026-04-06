@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ciao Bella — v2 Nestig Palette</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9f5f2; color: #0a0a0a; }
+
+  /* NAV */
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 56px; background: #f9f5f2; border-bottom: 1px solid #e5e5eb;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .logo { font-size: 22px; font-weight: 800; color: #0a0a0a; letter-spacing: -0.5px; }
+  .logo span { color: #173482; }
+  .nav-cta {
+    background: #173482; color: white; border: none; border-radius: 10px;
+    padding: 11px 24px; font-size: 14px; font-weight: 600; cursor: pointer;
+    letter-spacing: 0.2px;
+  }
+
+  /* HERO */
+  .hero {
+    background: #173482;
+    padding: 96px 56px 80px;
+    display: flex; align-items: center; gap: 72px;
+  }
+  .hero-text { flex: 1; }
+  .hero-badge {
+    display: inline-block; background: rgba(170, 196, 231, 0.25); color: #aac4e7;
+    border-radius: 50px; padding: 6px 16px; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-size: 60px; font-weight: 900; color: white; line-height: 1.0;
+    letter-spacing: -2.5px; margin-bottom: 22px;
+  }
+  .hero h1 em { font-style: normal; color: #aac4e7; }
+  .hero p { font-size: 18px; color: rgba(255,255,255,0.72); line-height: 1.65; margin-bottom: 36px; max-width: 440px; }
+  .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+  .btn-primary {
+    background: white; color: #173482; border-radius: 12px; padding: 15px 30px;
+    font-size: 15px; font-weight: 700; cursor: pointer; border: none;
+  }
+  .btn-secondary { color: rgba(255,255,255,0.65); font-size: 14px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  .hero-visual {
+    flex-shrink: 0; width: 260px; height: 320px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 28px; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 14px;
+    border: 1.5px solid rgba(170, 196, 231, 0.3);
+  }
+  .phone-emoji { font-size: 80px; }
+  .hero-visual p { color: rgba(255,255,255,0.4); font-size: 12px; text-align: center; padding: 0 20px; }
+
+  /* STORY PANELS */
+  .story-panel {
+    display: flex; align-items: center; gap: 56px;
+    padding: 88px 56px; border-bottom: 1px solid #e5e5eb;
+  }
+  .story-panel.reverse { flex-direction: row-reverse; background: #fefbf8; }
+  .story-icon {
+    flex-shrink: 0; width: 180px; height: 180px; border-radius: 36px;
+    display: flex; align-items: center; justify-content: center; font-size: 80px;
+  }
+  .icon-periwinkle { background: #e8eef8; }
+  .icon-cream { background: #f0ece6; }
+  .icon-navy { background: #eaecf5; }
+  .story-content { flex: 1; }
+  .story-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase;
+    color: #173482; margin-bottom: 14px;
+  }
+  .story-content h2 { font-size: 40px; font-weight: 800; line-height: 1.1; letter-spacing: -1.2px; margin-bottom: 16px; color: #0a0a0a; }
+  .story-content p { font-size: 17px; color: #555; line-height: 1.75; max-width: 480px; }
+
+  /* TESTIMONIALS */
+  .testimonials { padding: 88px 56px; background: #f9f5f2; }
+  .testimonials h2 { font-size: 40px; font-weight: 800; letter-spacing: -1.2px; margin-bottom: 8px; }
+  .testimonials .sub { color: #888; font-size: 16px; margin-bottom: 52px; }
+  .quotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .quote-card {
+    background: #fefbf8; border: 1px solid #e5e5eb; border-radius: 18px; padding: 32px;
+  }
+  .quote-text { font-size: 15px; line-height: 1.75; color: #2c3e50; margin-bottom: 24px; font-style: italic; }
+  .quote-author { display: flex; align-items: center; gap: 12px; }
+  .avatar { width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+  .avatar-1 { background: #e8eef8; }
+  .avatar-2 { background: #f0ece6; }
+  .avatar-3 { background: #eaecf5; }
+  .quote-name { font-size: 14px; font-weight: 700; color: #0a0a0a; }
+  .quote-role { font-size: 12px; color: #888; }
+
+  /* FORM */
+  .form-section {
+    padding: 96px 56px; background: #173482;
+    display: flex; align-items: flex-start; gap: 80px;
+  }
+  .form-left { flex: 1; padding-top: 8px; }
+  .form-left h2 { font-size: 44px; font-weight: 900; color: white; letter-spacing: -2px; line-height: 1.05; margin-bottom: 18px; }
+  .form-left p { color: rgba(255,255,255,0.72); font-size: 17px; line-height: 1.65; }
+  .form-right { flex: 1; background: #f9f5f2; border-radius: 24px; padding: 40px; }
+  .form-right h3 { font-size: 22px; font-weight: 800; margin-bottom: 6px; color: #0a0a0a; letter-spacing: -0.5px; }
+  .form-right > p { font-size: 14px; color: #888; margin-bottom: 28px; }
+  .form-field { margin-bottom: 18px; }
+  .form-field label { display: block; font-size: 13px; font-weight: 600; color: #333; margin-bottom: 7px; letter-spacing: 0.2px; }
+  .form-field input, .form-field select {
+    width: 100%; padding: 13px 16px; border: 1.5px solid #e5e5eb; border-radius: 10px;
+    font-size: 14px; color: #0a0a0a; background: white; outline: none;
+    font-family: inherit; transition: border-color 0.2s;
+  }
+  .form-field input:focus { border-color: #173482; }
+  .form-submit {
+    width: 100%; background: #173482; color: white; border: none;
+    border-radius: 12px; padding: 15px; font-size: 15px; font-weight: 700;
+    cursor: pointer; margin-top: 4px; letter-spacing: 0.2px;
+  }
+  .form-note { font-size: 12px; color: #999; text-align: center; margin-top: 12px; }
+
+  /* FOOTER */
+  footer {
+    padding: 36px 56px; border-top: 1px solid #e5e5eb;
+    display: flex; justify-content: space-between; align-items: center;
+    background: #f9f5f2;
+  }
+  .footer-logo { font-size: 17px; font-weight: 800; color: #0a0a0a; }
+  .footer-logo span { color: #173482; }
+  footer p { font-size: 13px; color: #aaa; }
+
+  .mockup-label {
+    text-align: center; padding: 12px; background: #0a0a0a; color: #555;
+    font-size: 11px; font-family: monospace; letter-spacing: 1.5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="mockup-label">CIAO BELLA — V2 NESTIG PALETTE · for review</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">ciao <span>bella</span></div>
+  <button class="nav-cta">Get Early Access</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">✦ Now accepting early families</div>
+    <h1>Stay close,<br/>always <em>together</em></h1>
+    <p>A toy phone designed to keep kids connected with the people who love them most — grandparents, parents, and family near and far.</p>
+    <div class="hero-actions">
+      <button class="btn-primary">Join the waitlist →</button>
+      <span class="btn-secondary">See how it works</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="phone-emoji">☎️</div>
+    <p>Product photo / illustration</p>
+  </div>
+</section>
+
+<!-- STORY PANEL 1 -->
+<section class="story-panel">
+  <div class="story-icon icon-periwinkle">👧</div>
+  <div class="story-content">
+    <div class="story-label">For the little ones</div>
+    <h2>Kids call who they love</h2>
+    <p>Ciao Bella only connects kids with contacts you approve. No strangers, no apps, no distractions. Just the people who matter most — one tap away.</p>
+  </div>
+</section>
+
+<!-- STORY PANEL 2 -->
+<section class="story-panel reverse">
+  <div class="story-icon icon-cream">👴</div>
+  <div class="story-content">
+    <div class="story-label">For grandparents</div>
+    <h2>Grandparents stay close</h2>
+    <p>No usernames. No passwords. No confusing apps. Grandma and grandpa pick up the phone and hear a little voice. That's it. That's everything.</p>
+  </div>
+</section>
+
+<!-- STORY PANEL 3 -->
+<section class="story-panel">
+  <div class="story-icon icon-navy">👩</div>
+  <div class="story-content">
+    <div class="story-label">For parents</div>
+    <h2>Parents feel at ease</h2>
+    <p>You decide who's in the contact list. You can see when calls happen. And you can rest knowing your child is only connected to your family's love.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <h2>Families love it</h2>
+  <p class="sub">Early families sharing their Ciao Bella moments</p>
+  <div class="quotes">
+    <div class="quote-card">
+      <div class="quote-text">"My daughter calls grandma every single day now. Grandma cried the first time. We all did."</div>
+      <div class="quote-author">
+        <div class="avatar avatar-1">👩</div>
+        <div>
+          <div class="quote-name">Sarah M.</div>
+          <div class="quote-role">Mom of 2, Portland</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"I was worried about screen time. Ciao Bella is different — it's not a screen, it's a conversation."</div>
+      <div class="quote-author">
+        <div class="avatar avatar-2">👨</div>
+        <div>
+          <div class="quote-name">James T.</div>
+          <div class="quote-role">Dad, Austin TX</div>
+        </div>
+      </div>
+    </div>
+    <div class="quote-card">
+      <div class="quote-text">"My grandson lives across the country. Now I hear his voice every day. It's the best gift I've ever received."</div>
+      <div class="quote-author">
+        <div class="avatar avatar-3">👴</div>
+        <div>
+          <div class="quote-name">Harold K.</div>
+          <div class="quote-role">Grandfather, retired</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST FORM -->
+<section class="form-section">
+  <div class="form-left">
+    <h2>Be the first to bring family closer</h2>
+    <p>We're opening Ciao Bella to a small group of families first. Join the waitlist and we'll be in touch when it's your turn.</p>
+  </div>
+  <div class="form-right">
+    <h3>Get early access</h3>
+    <p>We'll let you know as soon as you're in.</p>
+    <div class="form-field">
+      <label>Your name</label>
+      <input type="text" placeholder="e.g. Sarah Miller" />
+    </div>
+    <div class="form-field">
+      <label>Email address</label>
+      <input type="email" placeholder="you@email.com" />
+    </div>
+    <div class="form-field">
+      <label>How old is your child?</label>
+      <select>
+        <option>Under 2 years</option>
+        <option>2–4 years</option>
+        <option>5–7 years</option>
+        <option>8–10 years</option>
+      </select>
+    </div>
+    <button class="form-submit">Join the waitlist ✦</button>
+    <div class="form-note">No spam, ever. We'll only email when you're in.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ciao <span>bella</span></div>
+  <p>© 2026 Ciao Bella · Made with love for families</p>
+  <p>hello@ciaobella.com</p>
+</footer>
+
+</body>
+</html>

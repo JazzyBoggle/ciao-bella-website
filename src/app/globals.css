@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand-green: #32C992;
+  --color-brand-teal: #108474;
+  --color-brand-purple: #7C3AED;
+  --color-brand-coral: #E84C30;
+  --color-card-pink: #F9B4AB;
+  --color-card-amber: #F5C842;
+  --color-card-mint: #85E0A3;
+  --color-muted: #7B7B7B;
+  --color-border: #DADADA;
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-dm-sans);
+  --font-hero: var(--font-nunito);
+  --font-heading: var(--font-urbanist);
+}
+
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+  color: #000;
+  background: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-urbanist), Georgia, serif;
+  font-weight: 500;
+}
+
+/* Desktop offset for center phone card (side photos push it left) */
+@media (min-width: 768px) {
+  [data-speed="1.0"].absolute {
+    transform: translateX(calc(-50% - 43px)) !important;
+  }
+}
+
