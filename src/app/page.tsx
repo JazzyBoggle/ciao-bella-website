@@ -9,7 +9,98 @@ export default function Home() {
     <main className="min-h-screen overflow-x-clip">
       <Navbar />
 
-      
+      {/* ── Hero ── */}
+      <section data-animate="hero-section" className="relative bg-white overflow-x-clip z-10">
+        <div className="relative flex flex-col items-center gap-10 pt-[100px] lg:pt-[106px] px-6">
+
+          <div data-animate="hero-text" className="flex flex-col items-center gap-6">
+            <span className="bg-[#f5b675] text-white text-[14px] font-medium px-4 py-1 rounded-full tracking-[-0.28px] font-body">
+              🇦🇺 Australian owned & made for kids — Launching soon
+            </span>
+            <h1 data-animate="hero-heading" className="text-[36px] sm:text-[48px] md:text-[60px] lg:text-[72px] font-medium leading-[1.11] tracking-[-2.16px] text-[#343433] text-center font-heading">
+              <span data-animate="hero-word">iPhones </span>
+              <span data-animate="hero-word">can </span>
+              <span data-animate="hero-word">wait.</span>
+              <br />
+              <span data-animate="hero-word">Telling </span>
+              <span data-animate="hero-word">Grandad </span>
+              <span data-animate="hero-word">I </span>
+              <span data-animate="hero-word">Love </span>
+              <span data-animate="hero-word">You </span>
+              <span data-animate="hero-word">can&apos;t.</span>
+            </h1>
+            <p className="text-[18px] sm:text-[20px] lg:text-[24px] font-medium text-[#474645] text-center max-w-[875px] leading-[32px] tracking-[-0.24px] font-heading">
+              Ciao Bella is a beautiful home phone made just for kids. It
+              connects them to the people who love them — and nobody else gets
+              in.
+            </p>
+          </div>
+
+          {/* CTA + trust badges */}
+          <div data-animate="hero-cta" className="flex flex-col items-center gap-5">
+            <a
+              href="/waitlist"
+              className="inline-flex items-center gap-6 bg-[#131313] text-white text-[16px] font-semibold pl-6 pr-2 py-2 rounded-full hover:bg-[#333] transition-colors tracking-[-0.32px] font-body"
+            >
+              Be the first to say Ciao
+              <span className="w-12 h-12 bg-[#f5b675] rounded-full flex items-center justify-center shrink-0">
+                <svg className="w-3 h-5 translate-x-px" fill="none" stroke="white" strokeWidth={2.5} viewBox="0 0 12 20">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2 18L10 10L2 2" />
+                </svg>
+              </span>
+            </a>
+            {/* Trust badges */}
+            <div className="flex flex-wrap justify-center gap-3 mt-1">
+              {[
+                '✓ Parent controlled',
+                '✓ Ages 4 to smartphone-ready',
+                '✓ Australian owned',
+              ].map(badge => (
+                <span key={badge} className="bg-[#f7f3ee] text-[#474645] text-[13px] font-body font-medium px-4 py-1.5 rounded-full border border-[#ede8e0]">
+                  {badge}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ── Two hero photos side by side ── */}
+        <div data-animate="hero-photos" className="relative max-w-[1200px] mx-auto mt-12 mb-4 px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            {/* Left — Kid on phone */}
+            <div className="relative">
+              <div data-animate="hero-fade" className="relative rounded-3xl overflow-hidden aspect-[4/5] md:aspect-[3/4]">
+                <img
+                  src="/images/hero-photo-left.jpg"
+                  alt="A happy moment on a Ciao Bella phone"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Speech bubble */}
+              <div data-animate="hero-fade" className="absolute -top-3 -right-2 md:top-4 md:-right-4 z-10 bg-white rounded-2xl rounded-bl-sm shadow-lg px-5 py-3 max-w-[200px]">
+                <p className="text-[15px] md:text-[17px] font-medium text-[#343433] leading-tight font-hero">We made it the finals!</p>
+                <div className="absolute -bottom-2 left-6 w-4 h-4 bg-white rotate-45 shadow-sm" />
+              </div>
+            </div>
+
+            {/* Right — Grandma on phone */}
+            <div className="relative">
+              <div data-animate="hero-fade" className="relative rounded-3xl overflow-hidden aspect-[4/5] md:aspect-[3/4]">
+                <img
+                  src="/images/hero-photo-right.jpg"
+                  alt="Grandma smiling on a Ciao Bella phone"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Speech bubble */}
+              <div data-animate="hero-fade" className="absolute -top-3 -left-2 md:top-4 md:-left-4 z-10 bg-[#6297d6] rounded-2xl rounded-br-sm shadow-lg px-5 py-3 max-w-[200px]">
+                <p className="text-[15px] md:text-[17px] font-medium text-white leading-tight font-hero">That&apos;s amazing!</p>
+                <div className="absolute -bottom-2 right-6 w-4 h-4 bg-[#6297d6] rotate-45 shadow-sm" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── How it works ── */}
       <section id="how-it-works" className="bg-white px-6 md:px-[52px] py-20 lg:py-32 relative z-20 overflow-hidden">
