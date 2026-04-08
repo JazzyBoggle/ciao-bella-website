@@ -19,7 +19,7 @@ export default function Navbar() {
           <img
             src="/images/logo-new.svg"
             alt="Ciao Bella"
-            className="h-[72px] w-auto"
+            className="h-[100px] w-auto"
           />
         </a>
 
