@@ -44,19 +44,21 @@ export async function POST(req: NextRequest) {
         },
       }),
     });
-let profileId: string = '';
+
+    const profileData = await profileRes.json();
+    let profileId = '';
 
     if (profileRes.status === 201) {
-      const profileData = await profileRes.json();
       profileId = profileData.data.id;
     } else if (profileRes.status === 409) {
-      // Profile already exists — get the ID from the conflict response
-      const profileData = await profileRes.json();
-      profileId = profileData.errors?.[0]?.meta?.duplicate_profile_id;
+      profileId = profileData.errors?.[0]?.meta?.duplicate_profile_id || '';
     } else {
-      const err = await profileRes.json();
-      console.error('Klaviyo profile error:', err);
-      return NextResponse.json({ error: 'Failed to create profile' }, { status: 500 });
+      console.error('Klaviyo profile error:', JSON.stringify(profileData));
+      return NextResponse.json({ error: 'Failed to create profile', details: profileData }, { status: 500 });
+    }
+
+    if (!profileId) {
+      return NextResponse.json({ error: 'Could not get profile ID' }, { status: 500 });
     }
 
     // Add profile to waitlist
