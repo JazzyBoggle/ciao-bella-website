@@ -3,17 +3,17 @@
 import { useState } from "react";
 
 const NAV_ITEMS = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "The Phone", href: "/the-phone" },
-  { label: "FAQs", href: "/faqs" },
+  { label: "Waitlist", href: "/waitlist" },
+  { label: "How it works", href: "/#how-it-works" },
+  { label: "For parents", href: "/#for-parents" },
+  { label: "About us", href: "/about" },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="bg-white sticky top-0 z-50">
+    <nav className="bg-white sticky top-0 z-50 border-b border-[#f0f0f0]">
       <div className="flex items-center justify-between px-6 md:px-10 lg:px-[132px] py-3">
         <a href="/" className="shrink-0">
           <img
@@ -38,9 +38,14 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <a
             href="/waitlist"
-            className="hidden sm:flex bg-[#6297d6] text-white text-[16px] font-semibold h-12 items-center justify-center px-6 rounded-full hover:bg-[#5080b8] transition-colors tracking-[-0.32px] font-body shrink-0"
+            className="hidden sm:inline-flex items-center gap-4 bg-[#131313] text-white text-[15px] font-semibold pl-5 pr-2 py-2 rounded-full hover:bg-[#333] transition-colors tracking-[-0.32px] font-body shrink-0"
           >
-            Sign up
+            Join the waitlist
+            <span className="w-9 h-9 bg-[#f5b675] rounded-full flex items-center justify-center shrink-0">
+              <svg className="w-2.5 h-4 translate-x-px" fill="none" stroke="white" strokeWidth={2.5} viewBox="0 0 12 20">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2 18L10 10L2 2" />
+              </svg>
+            </span>
           </a>
           <button
             className="lg:hidden flex flex-col gap-1.5"
@@ -64,11 +69,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${open ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"}`}>
         <div className="flex flex-col gap-2 px-6 pb-6 pt-2">
           {NAV_ITEMS.map((item) => (
             <a
@@ -83,9 +84,9 @@ export default function Navbar() {
           <a
             href="/waitlist"
             onClick={() => setOpen(false)}
-            className="sm:hidden mt-2 flex bg-[#6297d6] text-white text-[16px] font-semibold h-12 items-center justify-center px-6 rounded-full hover:bg-[#5080b8] transition-colors tracking-[-0.32px] font-body"
+            className="sm:hidden mt-2 flex bg-[#131313] text-white text-[16px] font-semibold h-12 items-center justify-center px-6 rounded-full hover:bg-[#333] transition-colors tracking-[-0.32px] font-body"
           >
-            Sign up
+            Join the waitlist
           </a>
         </div>
       </div>
