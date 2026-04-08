@@ -12,8 +12,6 @@ export default function Home() {
       {/* ── Hero ── */}
       <section data-animate="hero-section" className="relative bg-white overflow-x-clip z-10">
         <div className="relative flex flex-col items-center gap-10 pt-[100px] lg:pt-[106px] px-6">
-          <img data-animate="doodle" src="/images/star-doodle.svg" alt="" className="hidden lg:block absolute top-[30px] left-[calc(50%-640px)] w-[220px] h-[220px] pointer-events-none select-none" aria-hidden="true" />
-          <img data-animate="doodle" src="/images/envelope-doodle.svg" alt="" className="hidden lg:block absolute top-[20px] right-[calc(50%-650px)] w-[230px] h-[230px] rotate-[26deg] pointer-events-none select-none" aria-hidden="true" />
 
           <div data-animate="hero-text" className="flex flex-col items-center gap-6">
             <span className="bg-[#f5b675] text-white text-[14px] font-medium px-4 py-1 rounded-full tracking-[-0.28px] font-body">
@@ -66,33 +64,39 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ── Photo fan ── */}
-        <div data-animate="hero-photos" className="relative h-[350px] sm:h-[420px] md:h-[500px] lg:h-[600px] mt-10">
-          <div data-animate="hero-fade" className="hidden lg:block absolute left-[calc(50%-460px)] top-[90px] z-10 pointer-events-none">
-            <div className="relative w-[174px] h-[124px]">
-              <img src="/images/bubble-left.svg" alt="" className="w-full h-full" />
-              <span className="absolute inset-0 flex items-center justify-center text-[18px] text-black text-center leading-[0.95] px-8 font-hero">We made it the finals!</span>
+        {/* ── Two hero photos side by side ── */}
+        <div data-animate="hero-photos" className="relative max-w-[1200px] mx-auto mt-12 mb-4 px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            {/* Left — Kid on phone */}
+            <div className="relative">
+              <div data-animate="hero-fade" className="relative rounded-3xl overflow-hidden aspect-[4/5] md:aspect-[3/4]">
+                <img
+                  src="/images/hero-photo-left.jpg"
+                  alt="A happy moment on a Ciao Bella phone"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Speech bubble */}
+              <div data-animate="hero-fade" className="absolute -top-3 -right-2 md:top-4 md:-right-4 z-10 bg-white rounded-2xl rounded-bl-sm shadow-lg px-5 py-3 max-w-[200px]">
+                <p className="text-[15px] md:text-[17px] font-medium text-[#343433] leading-tight font-hero">We made it the finals!</p>
+                <div className="absolute -bottom-2 left-6 w-4 h-4 bg-white rotate-45 shadow-sm" />
+              </div>
             </div>
-          </div>
-          <div data-animate="hero-fade" className="hidden lg:block absolute right-[calc(50%-517px)] top-[20px] z-10 pointer-events-none">
-            <div className="relative w-[150px] h-[150px]">
-              <img src="/images/bubble-right.svg" alt="" className="w-full h-full" />
-              <span className="absolute inset-[28%_20%_44%_20%] flex items-center justify-center text-[20px] text-[#6297d6] text-center leading-[0.95] font-hero">Thats amazing!</span>
-            </div>
-          </div>
-          <div data-animate="hero-fade" data-speed="0.8" className="absolute hidden md:block" style={{ left: "50%", top: "198px", transform: "translateX(calc(-50% - 211px)) rotate(-15deg)" }}>
-            <div className="w-[280px] lg:w-[376px] h-[412px] lg:h-[554px] rounded-3xl overflow-hidden">
-              <img src="/images/hero-photo-left.jpg" alt="Kids talking on a Ciao Bella phone" className="w-full h-full object-cover object-right" />
-            </div>
-          </div>
-          <div data-animate="hero-fade" data-speed="1.3" className="absolute hidden md:block z-[1]" style={{ left: "50%", top: "108px", transform: "translateX(calc(-50% + 150px)) rotate(15deg)" }}>
-            <div className="w-[280px] lg:w-[376px] h-[412px] lg:h-[554px] rounded-3xl overflow-hidden">
-              <img src="/images/hero-photo-right.jpg" alt="Girl talking on a Ciao Bella phone" className="w-full h-full object-cover object-left" />
-            </div>
-          </div>
-          <div data-speed="1.0" className="absolute z-[2]" style={{ left: "50%", top: "57px", transform: "translateX(-50%)" }}>
-            <div data-animate="video-card" className="w-[280px] lg:w-[376px] h-[412px] lg:h-[554px] rounded-3xl overflow-hidden shadow-[0px_15px_34px_0px_rgba(0,0,0,0.25),0px_61px_61px_0px_rgba(0,0,0,0.22)] bg-[#dae9f3]">
-              <video data-animate="hero-video" src="/images/phone-video.mp4" loop muted playsInline preload="auto" className="w-full h-full object-cover" />
+
+            {/* Right — Grandma on phone */}
+            <div className="relative">
+              <div data-animate="hero-fade" className="relative rounded-3xl overflow-hidden aspect-[4/5] md:aspect-[3/4]">
+                <img
+                  src="/images/hero-photo-right.jpg"
+                  alt="Grandma smiling on a Ciao Bella phone"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Speech bubble */}
+              <div data-animate="hero-fade" className="absolute -top-3 -left-2 md:top-4 md:-left-4 z-10 bg-[#6297d6] rounded-2xl rounded-br-sm shadow-lg px-5 py-3 max-w-[200px]">
+                <p className="text-[15px] md:text-[17px] font-medium text-white leading-tight font-hero">That&apos;s amazing!</p>
+                <div className="absolute -bottom-2 right-6 w-4 h-4 bg-[#6297d6] rotate-45 shadow-sm" />
+              </div>
             </div>
           </div>
         </div>
