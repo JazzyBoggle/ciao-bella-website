@@ -96,7 +96,7 @@ export default function Footer() {
         </div>
 
         {/* Large logo */}
-        <img src="/images/logo-new-large.png" alt="Ciao Bella" className="w-[512px] max-w-full h-auto" />
+        <img src="/images/logo-new.svg" alt="Ciao Bella" className="w-[512px] max-w-full h-auto" />
 
         {/* Bottom bar */}
         <div className="border-t border-[#f0f0f0] pt-6 flex flex-col sm:flex-row justify-between gap-2">

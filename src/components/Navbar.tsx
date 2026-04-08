@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-6 md:px-10 lg:px-[132px] py-3">
         <a href="/" className="shrink-0">
           <img
-            src="/images/logo-new.png"
+            src="/images/logo-new.svg"
             alt="Ciao Bella"
             className="h-[43px] w-auto"
           />
