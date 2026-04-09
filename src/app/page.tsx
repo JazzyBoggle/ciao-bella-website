@@ -11,11 +11,11 @@ export default function Home() {
 
       {/* ── Hero ── */}
       <section data-animate="hero-section" className="relative bg-white overflow-x-clip z-10">
-        <div className="relative flex flex-col items-center gap-10 pt-[100px] lg:pt-[106px] px-6">
+        <div className="relative flex flex-col items-center gap-6 pt-[40px] lg:pt-[48px] px-6">
 
-          <div data-animate="hero-text" className="flex flex-col items-center gap-6">
+          <div data-animate="hero-text" className="flex flex-col items-center gap-5">
             <span className="bg-[#f5b675] text-white text-[14px] font-medium px-4 py-1 rounded-full tracking-[-0.28px] font-body">
-              🇦🇺 Australian owned & made for kids — Launching soon
+              🇦🇺 Australian owned &amp; made for kids — Launching soon
             </span>
             <h1 data-animate="hero-heading" className="text-[36px] sm:text-[48px] md:text-[60px] lg:text-[72px] font-medium leading-[1.11] tracking-[-2.16px] text-[#343433] text-center font-heading">
               <span data-animate="hero-word">iPhones </span>
@@ -36,8 +36,8 @@ export default function Home() {
             </p>
           </div>
 
-          {/* CTA + trust badges */}
-          <div data-animate="hero-cta" className="flex flex-col items-center gap-5">
+          {/* CTA only */}
+          <div data-animate="hero-cta" className="flex flex-col items-center">
             <a
               href="/waitlist"
               className="inline-flex items-center gap-6 bg-[#131313] text-white text-[16px] font-semibold pl-6 pr-2 py-2 rounded-full hover:bg-[#333] transition-colors tracking-[-0.32px] font-body"
@@ -49,25 +49,28 @@ export default function Home() {
                 </svg>
               </span>
             </a>
-            {/* Trust badges */}
-            <div className="flex flex-wrap justify-center gap-3 mt-1">
-              {[
-                '✓ Parent controlled',
-                '✓ Ages 4 to smartphone-ready',
-                '✓ Australian owned',
-              ].map(badge => (
-                <span key={badge} className="bg-[#f7f3ee] text-[#474645] text-[13px] font-body font-medium px-4 py-1.5 rounded-full border border-[#ede8e0]">
-                  {badge}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
 
-        {/* ── Two hero photos side by side ── */}
-        <div data-animate="hero-photos" className="relative max-w-[1200px] mx-auto mt-12 mb-4 px-6">
+        {/* ── Two hero photos with original speech bubbles ── */}
+        <div data-animate="hero-photos" className="relative max-w-[1200px] mx-auto mt-10 mb-4 px-6">
+          {/* Speech bubble left */}
+          <div data-animate="hero-fade" className="hidden lg:block absolute left-[calc(50%-520px)] top-[20px] z-10 pointer-events-none">
+            <div className="relative w-[174px] h-[124px]">
+              <img src="/images/bubble-left.svg" alt="" className="w-full h-full" />
+              <span className="absolute inset-0 flex items-center justify-center text-[18px] text-black text-center leading-[0.95] px-8 font-hero">We made it the finals!</span>
+            </div>
+          </div>
+          {/* Speech bubble right */}
+          <div data-animate="hero-fade" className="hidden lg:block absolute right-[calc(50%-520px)] top-[20px] z-10 pointer-events-none">
+            <div className="relative w-[150px] h-[150px]">
+              <img src="/images/bubble-right.svg" alt="" className="w-full h-full" />
+              <span className="absolute inset-[28%_20%_44%_20%] flex items-center justify-center text-[20px] text-[#6297d6] text-center leading-[0.95] font-hero">Thats amazing!</span>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            {/* Left — Kid on phone */}
+            {/* Left photo */}
             <div className="relative">
               <div data-animate="hero-fade" className="relative rounded-3xl overflow-hidden aspect-[4/5] md:aspect-[3/4]">
                 <img
@@ -76,14 +79,8 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Speech bubble */}
-              <div data-animate="hero-fade" className="absolute -top-3 -right-2 md:top-4 md:-right-4 z-10 bg-white rounded-2xl rounded-bl-sm shadow-lg px-5 py-3 max-w-[200px]">
-                <p className="text-[15px] md:text-[17px] font-medium text-[#343433] leading-tight font-hero">We made it the finals!</p>
-                <div className="absolute -bottom-2 left-6 w-4 h-4 bg-white rotate-45 shadow-sm" />
-              </div>
             </div>
-
-            {/* Right — Grandma on phone */}
+            {/* Right photo */}
             <div className="relative">
               <div data-animate="hero-fade" className="relative rounded-3xl overflow-hidden aspect-[4/5] md:aspect-[3/4]">
                 <img
@@ -92,12 +89,20 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Speech bubble */}
-              <div data-animate="hero-fade" className="absolute -top-3 -left-2 md:top-4 md:-left-4 z-10 bg-[#6297d6] rounded-2xl rounded-br-sm shadow-lg px-5 py-3 max-w-[200px]">
-                <p className="text-[15px] md:text-[17px] font-medium text-white leading-tight font-hero">That&apos;s amazing!</p>
-                <div className="absolute -bottom-2 right-6 w-4 h-4 bg-[#6297d6] rotate-45 shadow-sm" />
-              </div>
             </div>
+          </div>
+
+          {/* Trust badges moved below photos */}
+          <div className="flex flex-wrap justify-center gap-3 mt-8">
+            {[
+              "\u2713 Parent controlled",
+              "\u2713 Ages 4 to smartphone-ready",
+              "\u2713 Australian owned",
+            ].map((badge) => (
+              <span key={badge} className="bg-[#f7f3ee] text-[#474645] text-[13px] font-body font-medium px-4 py-1.5 rounded-full border border-[#ede8e0]">
+                {badge}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -203,7 +208,11 @@ export default function Home() {
             Join our waitlist and get early access, launch pricing, and a few updates from us along the way.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            {['✓ Parent controlled', '✓ Ages 4 to smartphone-ready', '✓ Australian owned'].map(badge => (
+            {[
+              "\u2713 Parent controlled",
+              "\u2713 Ages 4 to smartphone-ready",
+              "\u2713 Australian owned",
+            ].map((badge) => (
               <span key={badge} className="bg-white text-[#474645] text-[13px] font-body font-medium px-4 py-1.5 rounded-full border border-[#ede8e0]">
                 {badge}
               </span>
@@ -247,25 +256,25 @@ export default function Home() {
           <div data-animate="faq-list" className="flex flex-col gap-6 w-full max-w-[776px]">
             <FaqItem
               question="What age is Ciao Bella designed for?"
-              answer="Ciao Bella is designed for kids from age 4, right up until you feel they're ready for a smartphone. It gives younger kids independence to call the people they love, and older kids a safe stepping stone before the big leap to a smartphone."
+              answer="Ciao Bella is designed for kids from age 4, right up until you feel they&#39;re ready for a smartphone. It gives younger kids independence to call the people they love, and older kids a safe stepping stone before the big leap to a smartphone."
               defaultOpen
             />
             <FaqItem
               question="How do I control who can call my child?"
-              answer="Through the Ciao Bella parent app, you add approved contacts to your child's phone. Only those people can call or receive calls — everyone else is blocked automatically. You can update the list any time from your phone."
+              answer="Through the Ciao Bella parent app, you add approved contacts to your child&#39;s phone. Only those people can call or receive calls — everyone else is blocked automatically. You can update the list any time from your phone."
               defaultOpen
             />
             <FaqItem
               question="Does it connect to the internet?"
-              answer="No. Ciao Bella is a phone that only makes and receives calls. There's no internet, no apps, no social media, and no browser. Just real conversations with real people."
+              answer="No. Ciao Bella is a phone that only makes and receives calls. There&#39;s no internet, no apps, no social media, and no browser. Just real conversations with real people."
             />
             <FaqItem
               question="Can my child call emergency services?"
-              answer="Yes. Emergency services (000) are always available regardless of your contact list settings. Your child's safety always comes first."
+              answer="Yes. Emergency services (000) are always available regardless of your contact list settings. Your child&#39;s safety always comes first."
             />
             <FaqItem
               question="How do I get a Ciao Bella?"
-              answer="Join our waitlist today and we'll let you know as soon as Ciao Bella is available to order. Early sign-ups get first access and a special launch price."
+              answer="Join our waitlist today and we&#39;ll let you know as soon as Ciao Bella is available to order. Early sign-ups get first access and a special launch price."
             />
           </div>
         </div>
